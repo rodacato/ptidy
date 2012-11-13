@@ -14,6 +14,10 @@ module Tidy
       erb :home
     end
 
+    get '/tidy' do
+      redirect '/'
+    end
+
     post '/tidy' do
       @res = `node lib/beautify/beautifier.js #{params[:site]}`
       @raw = `node lib/beautify/beautifier_raw.js #{params[:site]}`

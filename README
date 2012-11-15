@@ -1,3 +1,22 @@
-Readme
+This command line tool, process a web page for make it more readable and look organized, it return a string with the source code optimized for readability propose.
 
-heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
+parameters:
+  ‘-u’ or ‘--url’ : To define the string containing the site url in format http://site.com  
+  ‘-p’ or ‘--path’ : To define the string containing the absolute path for the source code to optimize like /User/freshout/websites/index.html 
+  no params : If no params are specified, the stdin will be used as input data
+
+examples:
+
+Process a webpage from site url
+  node jsbeautifier -u http://gow.azendal.com
+  node jsbeautifier --url http://gow.azendal.com			
+
+Process a file with a valid source code
+	node js beautifier -p Users/azendal/gow/index.html
+	node js beautifier --path Users/azendal/gow/index.html
+
+Using the stdin as input data
+	echo '<html><head></head><body></body></html>' | node lib/beautify/beautifier.js
+
+Custom Buildpack for heroku test page:
+  heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
